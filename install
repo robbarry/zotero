@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# First, ensure that we aren't in a virtual environment
+if [ -n "$VIRTUAL_ENV" ]; then
+    echo "You are in a virtual environment. Please deactivate it first."
+    exit 1
+fi
+
+# Run poetry version to get the name of the package and the latest version
+PACKAGE=$(poetry version | cut -d ' ' -f 1)
+VERSION=$(poetry version | cut -d ' ' -f 2)
+
+# Now, install the package
+pip install dist/${PACKAGE}-${VERSION}.tar.gz --force-reinstall --upgrade

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Check the command line arguments for the version increment
+
+if [ -z "$1" ]; then
+    # print out the options and exit
+    # options are: patch, minor, major, prepatch, preminor, premajor, prerelease"
+    echo "Usage: $0 [patch|minor|major|prepatch|preminor|premajor|prerelease]"
+    exit 1
+else
+    INCREMENT="$1"
+fi
+
+# First, ensure that we aren't in a virtual environment
+if [ -n "$VIRTUAL_ENV" ]; then
+    echo "You are in a virtual environment. Please deactivate it first."
+    exit 1
+fi
+
+poetry version $INCREMENT
+poetry build

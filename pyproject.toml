@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "zotero"
+version = "0.1.4"
+description = ""
+authors = ["Rob Barry <rob.barry@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+dataset = "^1.5.2"
+watchgod = "^0.8.2"
+pyzotero = "^1.5.5"
+python-dotenv = "^0.21.0"
+alephclient = "^2.3.5"
+attrs = "^22.1.0"
+psycopg2-binary = "^2.9.3"
+PyYAML = "^6.0"
+
+
+[tool.poetry.scripts]
+zotero = "zotero.zotero:main"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
