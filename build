@@ -17,5 +17,6 @@ if [ -n "$VIRTUAL_ENV" ]; then
     exit 1
 fi
 
+poetry export -f requirements.txt > requirements.txt
 poetry version $INCREMENT
 poetry build
